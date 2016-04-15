@@ -1,6 +1,7 @@
-### My little git tutorial v.01  
+# My little git tutorial v.01  
+[TOC]
   
-Goal:  
+++**Goal:**++  
   - Explain on exmples how to use git  
   - Show usage of the tool  
 Not goal:  
@@ -96,12 +97,12 @@ Check git status of repository in folder Start
 When you made your changes you have to commit that it's really what you want.  
 This adds a traceable moment in git history - which means that you can always use  
 code from that point, compare to it, know what exactly was changed and more.  
-4.1)  
+#####4.1)  
 	When commit is being made you have to add note to it. It''s always seen as good  
     practice to mark your commit with short info, and after two newlines a longer one  
     if needed. fe:  
     `[Develop/bugfix-123] Communication problem solved`  
-4.2)  
+#####4.2)  
 	You can either write "git commit" and use default git editor ( vim ), change  
     git default editor to other, or write  
     `git commit -m <Your message>`  
@@ -130,13 +131,13 @@ For now we just want to have our branch to work on!
 >Branches are lightweight - these do not cost you, so use them (wisely)  
   
 Usage:  
-5.1) `git branch`  
+#####5.1) `git branch`  
     Shows all local branches in that repository, besides remote branches.  
-5.2) `git branch -a`  
+#####5.2) `git branch -a`  
     Shows literally all branches, this means remote too. Really important  
     when you will want to work on branch you didn't have before and was  
     from another repository.  
-5.3) `git branch -vv`  
+#####5.3) `git branch -vv`  
 	Shows branches with its parents  
   
 Task:  
@@ -165,27 +166,27 @@ To move between branches and create new we use checkout command. It is greatly
 common but less than status.  
   
 Usage:  
-7.1)  
+#####7.1)  
     `git checkout <from_branch> -b <to_branch>`  
     means from branch to_branch copy everything to newly made from_branch and  
     start working on it  
   
-7.2)   
+#####7.2)   
     `git checkout -b <to_branch>`  
     From branch I now do the same that in 7.1  
   
-7.3)   
+#####7.3)   
     `git checkout <to_branch>`  
     Switch from whatever branch I am in to to_branch  
-7.4)   
+#####7.4)   
     `git checkout -- <file>`  
     Revert changes in tracked file  
   
-7.5)  
+#####7.5)  
     `git checkout -- .`  
     Revert changes in all tracked files  
   
-7.6)   
+#####7.6)   
     `git checkout -- *.cpp`  
     Revert changed in all tracked cpp files ( <- as you see wild cards can be used)  
   
@@ -257,20 +258,20 @@ to decide what changes shall stay in his repository ( or even made new ones ).
 After merge is complete merge commit has to be made as a memorial to this fatal occasion.  
   
 >Remember:  
->10.1) When you start merge you can always pause it - it will stop merging procedure, but  
+>#####10.1) When you start merge you can always pause it - it will stop merging procedure, but  
 >it won't change repository state. To continue merge:  
 >        `$git merge --continue`  
 >and to abort merge:  
 >        `$git merge --abort`  
-After merge abortion you might want to clean your repository  
+>After merge abortion you might want to clean your repository  
   
-10.2) Merging binary files is most often a mess, it's better to select one from "theirs" of "ours"  
-10.3) Merge ends with merge commit. That means that you can merge and merge again one  
-file as many times as you wish. It also means that you can add manual changes to the code.   
-Fe: #warning During merge I might broke something"  
-10.4) Use mergetool - it will nicely show you what are the changes, and automatically solve   
-many conflict. You have to browse it though - machines also makes mistakes. (Although you will  
-see the problems during compilation most often).  
+>#####10.2) Merging binary files is most often a mess, it's better to select one from "theirs" of "ours"  
+>#####10.3) Merge ends with merge commit. That means that you can merge and merge again one  
+>file as many times as you wish. It also means that you can add manual changes to the code.   
+>Fe: #warning During merge I might broke something"  
+>#####10.4) Use mergetool - it will nicely show you what are the changes, and automatically solve   
+>many conflict. You have to browse it though - machines also makes mistakes. (Although you will  
+>see the problems during compilation most often).  
   
 ######Mergetools:  
 ~~~  
