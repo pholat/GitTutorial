@@ -1,13 +1,15 @@
-# My little git tutorial v.01  
-[TOC]
-  
-++**Goal:**++  
+# little git tutorial in practice v.01  
+
+**Goal:**
   - Explain on exmples how to use git  
   - Show usage of the tool  
 Not goal:  
-  - sell git and tell how awesome it it  
+  - sell how avesome git is
   - make another useless tutorial leaving you in bush  
-  
+
+**NOTE**
+It's important to go in order through steps - jumping will leave you in the bush.  
+
 #### -1) Remember:  
 Git has awesome built in readme, use "git <command> help" to get info   
 even before googling it out. ( ls and / in it will help you a lot)  
@@ -24,23 +26,23 @@ repository copy all the time till you do not execute this three commands:
 That means as long as you do not execute this commands ( and delete .git dir )  
 all the changes you make are revertible - by whole, or partially  
   
-#####0.2) So what is hard?  
+##### 0.2) So what is hard?  
 From my perspective the most useful and easiest in long term is to use git  
 from commandline. Why? Because you clearly see what happens, you just don't  
 when you use it from Tortoise or SourceTree - which Gui programs leave you  
 with some magic happening.  
   
-#####0.3) What about this magic?  
+##### 0.3) What about this magic?  
 No magic really, once you grasp the basics you see that everything is in place.  
   
-#####0.4) Finally, how:  
+##### 0.4) Finally, how:  
 How it's always done - by step by step learning. Normally you do it by yourself  
 thrown on deep water with some help from others, or none. This time? you do it  
 by solving tasks.  
   
 So lets the show begin.  
   
-####1) Command: $git init  
+#### 1) Command: $git init  
   
 This command initializes repository in directory you started it.  
 It doesn't add any files etc. just creates empty repo. Now you can   
@@ -50,11 +52,11 @@ Which will be explained further
 TASK:  
 Initialize a repository in folder Start  
 ```  
->Additional info:  
->You see the repo with "ls -a"  
->You can get into .git dir with cd and look what's there  
-  
-####2) Command: $git add <something>  
+>Additional info:
+>You see the repo with "ls -a"
+>You can get into .git dir with cd and look what's there
+
+#### 2) Command: $git add <something>
   
 That commands adds fields to be tracked by repository.  
 When file is tracked, that doesn't mean that changes are tracked.  
@@ -80,7 +82,7 @@ create file named main.cpp in Start catalog.
 In line 1: write "Hello Git", and add it to repo.  
 ~~~  
   
-####3) Command: $git status  
+#### 3) Command: $git status  
   
 One of the most used git commands, without that you would never know where  
 you are!   
@@ -90,33 +92,33 @@ Task:
 Check git status of repository in folder Start  
 ~~~  
   
->You should see that main.cpp is added to the repository, yet  
->changes are unstaged.  
+> You should see that main.cpp is added to the repository, yet
+> changes are unstaged. 
   
-####4) Command: git commit  
+#### 4) Command: git commit  
 When you made your changes you have to commit that it's really what you want.  
 This adds a traceable moment in git history - which means that you can always use  
 code from that point, compare to it, know what exactly was changed and more.  
-#####4.1)  
-	When commit is being made you have to add note to it. It''s always seen as good  
+##### 4.1)  
+    When commit is being made you have to add note to it. It''s always seen as good  
     practice to mark your commit with short info, and after two newlines a longer one  
     if needed. fe:  
     `[Develop/bugfix-123] Communication problem solved`  
-#####4.2)  
-	You can either write "git commit" and use default git editor ( vim ), change  
+##### 4.2)  
+    You can either write "git commit" and use default git editor ( vim ), change  
     git default editor to other, or write  
     `git commit -m <Your message>`  
   
 Examples:  
 `git commit`  
 `git commit -m`  
-  
+
 ```  
 Task:  
 Commit your work in catalog Start  
 ```  
   
-####5) Command: $git branch  
+#### 5) Command: $git branch  
 With initialized repository we have only one default branch - master.   
 What's essential: There are two "types" of branch - remote and local,   
 remote ones are being used for synchronization, and checking them out causes...  
@@ -128,22 +130,24 @@ do that all at once. Also to model your code history.
 For more information I suppose you would love to read "merge vs rebase".  
 For now we just want to have our branch to work on!  
   
->Branches are lightweight - these do not cost you, so use them (wisely)  
+>Branches are lightweight - these do not cost you, so use them (wisely)
   
 Usage:  
-#####5.1) `git branch`  
+##### 5.1) `git branch`  
     Shows all local branches in that repository, besides remote branches.  
-#####5.2) `git branch -a`  
+##### 5.2) `git branch -a`  
     Shows literally all branches, this means remote too. Really important  
     when you will want to work on branch you didn't have before and was  
     from another repository.  
-#####5.3) `git branch -vv`  
-	Shows branches with its parents  
+##### 5.3) `git branch -vv`  
+    Shows branches with its parents  
   
+```
 Task:  
 See how many branches you have in folder Start  
+```
   
-####6) Git clone  
+#### 6) Git clone  
 Creating new repository is a rather seldom thing, you can be so happy only  
 occasionally, more often you work with bunch of people in dispersed  
 centralized way ( dispersed because in fact all of you have complete repo  
@@ -157,43 +161,39 @@ Usage:
 fe: `git clone https://www.github.com/someone/branch TODO`  
 fe2: `git clone ../Start`  
   
+~~~  
 Task:  
 Clone Start to newly made Second beside it ( in Start type: mkdir ../Second)  
-  
-  
+~~~  
+
 #### 7) Git checkout   
 To move between branches and create new we use checkout command. It is greatly  
 common but less than status.  
   
 Usage:  
-#####7.1)  
-    `git checkout <from_branch> -b <to_branch>`  
+##### 7.1) `git checkout <from_branch> -b <to_branch>`  
     means from branch to_branch copy everything to newly made from_branch and  
     start working on it  
   
-#####7.2)   
-    `git checkout -b <to_branch>`  
-    From branch I now do the same that in 7.1  
-  
-#####7.3)   
-    `git checkout <to_branch>`  
-    Switch from whatever branch I am in to to_branch  
-#####7.4)   
-    `git checkout -- <file>`  
-    Revert changes in tracked file  
-  
-#####7.5)  
-    `git checkout -- .`  
-    Revert changes in all tracked files  
-  
-#####7.6)   
-    `git checkout -- *.cpp`  
-    Revert changed in all tracked cpp files ( <- as you see wild cards can be used)  
-  
->Beware - you can not switch if you have unsaved work, because what git shall do   
->with it? Drop it? Save it somewhere? Or maybe send to space? You are the one to  
->decide!  
-  
+##### 7.2) `git checkout -b <to_branch>`  
+    From branch I now do the same that in 7.1
+
+##### 7.3) `git checkout <to_branch>`  
+    Switch from whatever branch I am in to to_branch
+
+##### 7.4) `git checkout -- <file>`
+    Revert changes in tracked file
+
+##### 7.5) `git checkout -- .`
+    Revert changes in all tracked files
+
+##### 7.6) `git checkout -- *.cpp`
+    Revert changed in all tracked cpp files ( as you see wild cards can be used )
+
+>Beware - you can not switch if you have unsaved work, because what git shall do
+>with it? Drop it? Save it somewhere? Or maybe send to space? You are the one to
+>decide!
+
 ~~~  
 Task:  
 create new branch named Bugfix in repository in Start  
@@ -205,8 +205,8 @@ again add second line "My work on Bugfix"
 Commit your change ( git add -u | git commit -m "Your message" )  
 Create new file lol.txt and do not add it to repository  
 ~~~  
-  
-####8) Git clean  
+
+#### 8) Git clean
 Many, many times you create temporary files in repository, this files (and uncommitted  
 changes) will stop you from checking out to different branches. While you can delete  
 them by hand - you do not need to. You can just clean the repo to state from last  
@@ -219,13 +219,15 @@ Usage: ( My favorite)
     localization. You can decide to create branch or check status anywhere, but  
     if you clean from some top catalogs do not expect that some catalogs down  
     will be clean too.  
+    `git clean -ffdx`
+    The same upper, but remove all untracked + folders
   
 ~~~  
 Task:  
 Clean your temporary files ( which is lol.txt ) in Start repository.  
 Go into Second, to cloned Start repository  
 ~~~  
-  
+
 ####9) Git pull  
 Pull is used to actualize your repository to your origin ( or remotes if you specify TODO)  
 If any tracked branch will be in conflicted state - you will have to merge that changes.  
@@ -249,7 +251,7 @@ Add new change to main.cpp - change last word to "Bugmade" - commit it
 Go to parent Start repository, change last word to "Bugsiolololo" - commit it.  
 ~~~  
   
-####10) Git merge : One big point worth of chapter  
+#### 10) Git merge : One big point worth of chapter  
 So you happen to have two repositories, with the same files, and new different changes in it.  
 Maybe you, and your colleague worked on the same bug, or needed the same functionality.  
 So when you will try to update your repository it's only natural that three way difference  
@@ -257,23 +259,24 @@ will be shown, this three way difference is a natural cause of three way merge -
 to decide what changes shall stay in his repository ( or even made new ones ).  
 After merge is complete merge commit has to be made as a memorial to this fatal occasion.  
   
->Remember:  
->#####10.1) When you start merge you can always pause it - it will stop merging procedure, but  
->it won't change repository state. To continue merge:  
->        `$git merge --continue`  
->and to abort merge:  
->        `$git merge --abort`  
->After merge abortion you might want to clean your repository  
+> Remember:
+
+##### 10.1) When you start merge you can always pause it - it will stop merging procedure, but  
+it won't change repository state. To continue merge:
+        `$git merge --continue`
+and to abort merge:
+        `$git merge --abort`
+After merge abortion you might want to clean your repository
+
+##### 10.2) Merging binary files is a mess, it's better to select one from "theirs" of "ours"  
+##### 10.3) Merge ends with merge commit. That means that you can merge and merge again one
+file as many times as you wish. It also means that you can add manual changes to the code.  
+Fe: #warning During merge I might broke something"  
+##### 10.4) Use mergetool - it will nicely show you what are the changes, and automatically solve   
+many conflict. You have to browse it though - machines also makes mistakes. (Although you will  
+see the problems during compilation most often).  
   
->#####10.2) Merging binary files is most often a mess, it's better to select one from "theirs" of "ours"  
->#####10.3) Merge ends with merge commit. That means that you can merge and merge again one  
->file as many times as you wish. It also means that you can add manual changes to the code.   
->Fe: #warning During merge I might broke something"  
->#####10.4) Use mergetool - it will nicely show you what are the changes, and automatically solve   
->many conflict. You have to browse it though - machines also makes mistakes. (Although you will  
->see the problems during compilation most often).  
-  
-######Mergetools:  
+###### Mergetools:  
 ~~~  
 I personally used: kdiff, meld, vimdiff. (first two window programs, last one terminal program )  
 kdiff: installation on windows automatically connects everything you want, that means you have  
@@ -325,12 +328,12 @@ origin set ). You will expect merge, and conflict.
 5: Commit your changes  
 ~~~  
   
-######Important notice:  
+>Important notice:
 When you merge stuff it's very important that before you commit and push your changes to other  
 repositories to check if it still, at least, compiles. Better - passes code tests you obviously  
 write :)  
-  
-####11) Git push:  
+
+#### 11) Git push:  
 You can pull stuff, merge changes, so now you need ability to push your changes to another repository.  
 To that you: have to have this repository added ( added by default if you cloned it ) and it's most often  
 nice to have remote branches pinned to your actual branches (these are if you created them from origin/<brachname>  
@@ -344,20 +347,26 @@ You delete branches on remote that way to:
 `$git push <where> --delete <branchname>`  
 But to delete you can use:  
 `$git push <where> :<branchname>`  
-  
+Update rebased branch:
+`git push -f`
+> force is needed as with rebase local branch history has been changed
+> please remember that if you change history of branch not only use it will generate conflicts for everyone
+
+~~~  
 Task:  
 After merge you have conflicts solved in one branch, but not in other -   
 push changes from Second/Start/ to Start/ repository.   
+~~~  
   
-####12) Git fetch  
+#### 12) Git fetch  
 Fetch is a way to first load changes from repository and than decide what to do with them.  
 You know that you can merge them into, you do not yet know that you can rebase them ( warning - unsafe operation )  
 But in general - its always better to decide what you add today, and what another time.  
 In general: fetch updates only remote contents  
 Usage:  
-$`git fetch`  
+`git fetch`  
   
-####11) Git stash  
+#### 11) Git stash  
 It quite often happens that you forgot to switch to the actuall branch you want to  
 work on, do not want to make some funny merge, or think that this changes are nice,  
 but want to check something other on that branch. For that reason you can use stash.  
@@ -369,7 +378,7 @@ but want to check something other on that branch. For that reason you can use st
 `git stash pop stash@{2}`  
 `git stash add stash@{1}`  
   
-####14) Git rebase  
+#### 14) Git rebase  
 Rebase is a great command, but has to be used with caution. By rule of thumb - never rebase branch  
 on which works more than one person. Rule of thumb two: use rebase on dialy basic to update your  
 work branch to keep that branch updated. It doesn't generate a commit the way like merge, and   
@@ -389,3 +398,20 @@ remove your colleague changes from remote because you didn't check that your bra
 rebased to whatever else. He will have conflict on history, and when he decides that maybe he broke  
 his branch so he will stash changes, delete local branch and download remote anew instead clean start  
 he will have a huge mess.  
+
+#### 15) git submodule
+> In construction
+Git submodules are great and efficient to manage code dependency handling - it's a way you want to use when  
+you compile with separate module. i.e. if you have library developed by team A and app by team B and  
+library is build with app - then you are in need for submodules. 
+
+Submodules are just bind git repositories.  
+To add one:
+`git submodile init <submodule>`
+
+### TODO
+Add:
+* git configuration files
+* git submodules explanation
+* more tasks
+* rebase conflicts explanation
