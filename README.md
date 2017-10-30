@@ -1,3 +1,51 @@
+Table of Contents
+=================
+
+   * [little git tutorial in practice v.01](#little-git-tutorial-in-practice-v01)  
+            * [-1) Remember:](#-1-remember)  
+            * [0) What is that?](#0-what-is-that)  
+               * [0.1) What do I need to know:](#01-what-do-i-need-to-know)  
+               * [0.2) So what is hard?](#02-so-what-is-hard)  
+               * [0.3) What about this magic?](#03-what-about-this-magic)  
+               * [0.4) Finally, how:](#04-finally-how)  
+            * [1) Command: $git init](#1-command-git-init)  
+            * [2) Command: $git add ](#2-command-git-add-)  
+            * [3) Command: $git status](#3-command-git-status)  
+            * [4) Command: git commit](#4-command-git-commit)  
+               * [4.1)](#41)  
+               * [4.2)](#42)  
+            * [5) Command: $git branch](#5-command-git-branch)  
+               * [5.1) git branch](#51-git-branch)  
+               * [5.2) git branch -a](#52-git-branch--a)  
+               * [5.3) git branch -vv](#53-git-branch--vv)  
+            * [6) Git clone](#6-git-clone)  
+            * [7) Git checkout](#7-git-checkout)  
+               * [7.1) git checkout &lt;from_branch&gt; -b &lt;to_branch&gt;](#71-git-checkout-from_branch--b-to_branch)  
+               * [7.2) git checkout -b &lt;to_branch&gt;](#72-git-checkout--b-to_branch)  
+               * [7.3) git checkout &lt;to_branch&gt;](#73-git-checkout-to_branch)  
+               * [7.4) git checkout -- &lt;file&gt;](#74-git-checkout----file)  
+               * [7.5) git checkout -- .](#75-git-checkout----)  
+               * [7.6) git checkout -- *.cpp](#76-git-checkout----cpp)  
+            * [8) Git clean](#8-git-clean)  
+            * [10) Git merge : One big point worth of chapter](#10-git-merge--one-big-point-worth-of-chapter)  
+               * [10.1) When you start merge you can always pause it - it will stop merging procedure, but](#101-when-you-start-merge-you-can-always-pause-it---it-will-stop-merging-procedure-but)  
+               * [10.2) Merging binary files is a mess, it's better to select one from "theirs" of "ours"](#102-merging-binary-files-is-a-mess-its-better-to-select-one-from-theirs-of-ours)  
+               * [10.3) Merge ends with merge commit. That means that you can merge and merge again one](#103-merge-ends-with-merge-commit-that-means-that-you-can-merge-and-merge-again-one)  
+               * [10.4) Use mergetool - it will nicely show you what are the changes, and automatically solve](#104-use-mergetool---it-will-nicely-show-you-what-are-the-changes-and-automatically-solve)  
+                  * [Mergetools:](#mergetools)  
+            * [11) Git push:](#11-git-push)  
+            * [12) Git fetch](#12-git-fetch)  
+            * [11) Git stash](#11-git-stash)  
+            * [14) Git rebase](#14-git-rebase)  
+            * [15) git submodule](#15-git-submodule)  
+               * [git submodile add &lt;git repo&gt; &lt;optional path&gt;](#git-submodile-add-git-repo-optional-path)  
+               * [git submodule init](#git-submodule-init)  
+               * [git submodule update](#git-submodule-update)  
+               * [git clone --recursive](#git-clone---recursive)  
+               * [git submodule update --init --recursive](#git-submodule-update---init---recursive)  
+            * [16) Confituration files](#16-confituration-files)  
+         * [TODO](#todo)  
+
 # little git tutorial in practice v.01  
 
 **Goal:**
@@ -472,3 +520,4 @@ easiest way to have things done. Seriously.
 Add:
 * more tasks
 * rebase conflicts explanation
+
