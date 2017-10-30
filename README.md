@@ -406,12 +406,69 @@ you compile with separate module. i.e. if you have library developed by team A a
 library is build with app - then you are in need for submodules. 
 
 Submodules are just bind git repositories.  
+
+>Usage:
 To add one:
-`git submodile init <submodule>`
+##### `git submodile add <git repo> <optional path>`
+    To add submodule to the existing repository
+
+##### `git submodule init`
+    To initialise repository added to repository
+
+##### `git submodule update` 
+    To update submodule
+
+##### `git clone --recursive`
+    To setup repo with existing submodules
+
+##### `git submodule update --init --recursive`
+    To pull submodules for checked out repositories
+
+There are two ways to use submodules:
+* just like normal git repository - this is
+    * enter submodule repository
+    * make changes
+    * add -> commit -> push
+* use `git submodule foreach <standard repo git command>` for bulk changes  
+
+**NOTE**
+In order to remember what version of submodule was in use in main repository you need to add -> commit submodule
+version. This is:
+* after commiting in submodule in main repository git add -> git commit
+
+**NOTE** 
+Remember to push changes in submodule - to not loose track of used branches.
+
+#### 16) Confituration files
+There are at least three most interesting configuration files at this point:
+* $HOME/.gitconfig
+    generall git configuration files, here you can change your user, commands aliases, editors etc.
+    You can see example in my `home_setup` repository.
+    Aliases are very usefull, i.e. :
+        * you can make shortcut for git log in tree with specyfic date format - which is standard activity to git logk
+        * it's fancy to write long commands, like `git clean -ffdx` or `git submodule ...` but after a while it's more comftable to add two letter shortcuts
+
+* $REPO/.gitmodules
+    Listing of all submodules used with it's parent urls and local dirs
+
+* .gitignore
+    As name says - ignore files list, it follows a bit specyfic glob handling, but standard globs suffice for most cases.
+    Terribly usefull file. Please mark that ignored files will be removed either way with `git clean -ffdx` command.
+
+* $HOME/.gitignore_global
+    This one is particulary interesting. It helps to ignore files which are created by your favourite editor etc. but not
+    to clobber repository .gitignore
+
+** NOTE **
+It's snot a config for git, but it's worth mentioning here: there exists program named `thefuck` which will help with typos.
+It's helpfull to install gitk and git-gui
+Editors for better and worse add git integration, I highly recomend:
+    * don't use git checkout commit etc in your editor
+    * leave editor integration to edition only - this is to history checks, blames, diffs 
+Why? Because there is only one git, but many git UI implementations and these can bite. Also - using commandline in git may sound weird but... it's
+easiest way to have things done. Seriously. 
 
 ### TODO
 Add:
-* git configuration files
-* git submodules explanation
 * more tasks
 * rebase conflicts explanation
